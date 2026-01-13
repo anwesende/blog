@@ -1,0 +1,36 @@
+{
+  "name": "vitepress-blog-ahao",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Ahao <helloahao@icloud.com>",
+  "license": "MIT",
+  "msvs_version": "2022",
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "fast-glob": "^3.2.12",
+    "feed": "^4.2.2",
+    "fs-extra": "^11.1.0",
+    "globby": "11.0.4",
+    "gray-matter": "^4.0.3",
+    "lottie-web": "^5.10.0",
+    "markdown-it": "^13.0.1",
+    "mermaid": "^11.12.1",
+    "sass": "^1.62.1",
+    "vitepress": "1.6.4",
+    "vitepress-plugin-mermaid": "^2.0.17"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "busuanzi.pure.js": "^1.0.3",
+    "cursor-effects": "^1.0.11",
+    "dayjs": "^1.11.7",
+    "@giscus/vue": "^3.1.0",
+    "pinia": "^2.0.33",
+    "vue": "^3.5.12"
+  },
+  "packageManager": "pnpm@9.15.3+sha512.1f79bc245a66eb0b07c5d4d83131240774642caaa86ef7d0434ab47c0d16f66b04e21e0c086eb61e62c77efc4d7f7ec071afad3796af64892fae66509173893a"
+}
