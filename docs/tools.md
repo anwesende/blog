@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 工具箱
+title: 工具
 ---
 
 <Tools/>
