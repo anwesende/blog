@@ -8,6 +8,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
     env:
       VITE_GISCUS_REPO: ${{ secrets.VITE_GISCUS_REPO }}
       VITE_GISCUS_REPO_ID: ${{ secrets.VITE_GISCUS_REPO_ID }}
@@ -38,7 +42,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           # Github 会在 workflow 中自动生成 GIHUBT_TOKEN，用于认证 workflow 的运行
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }}
           # 静态资源目录设置
           publish_dir: docs/.vitepress/dist
           # 默认发布到 gh-pages 分支上，可以指定特定的发布分支（不能选拉取代码的分支）
