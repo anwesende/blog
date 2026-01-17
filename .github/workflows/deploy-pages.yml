@@ -17,6 +17,8 @@ jobs:
       VITE_GISCUS_REPO_ID: ${{ secrets.VITE_GISCUS_REPO_ID }}
       VITE_GISCUS_CATEGORY: ${{ secrets.VITE_GISCUS_CATEGORY }}
       VITE_GISCUS_CATEGORY_ID: ${{ secrets.VITE_GISCUS_CATEGORY_ID }}
+      # 自定义域名下部署需要根路径，保持默认 GitHub Pages 项目页则去掉或改为 /blog/
+      VITEPRESS_BASE: "/"
     steps:
       - uses: actions/checkout@v3
         with:
@@ -33,7 +35,7 @@ jobs:
         run: pnpm run docs:build
 
       - name: Add CNAME file
-        run: echo "blog.mapin.net" > ./docs/.vitepress/dist/CNAME
+        run: echo "anwesende.cn" > ./docs/.vitepress/dist/CNAME
 
       - name: List build output
         run: ls -la ./docs/.vitepress/dist/
