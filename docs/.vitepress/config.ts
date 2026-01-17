@@ -29,7 +29,7 @@ async function config() {
         //base:"/",        
         // 在 GitHub Pages 项目页下需指定二级路径，否则静态资源会 404
 
-        base:"/blog/",
+        base: process.env.VITEPRESS_BASE ?? "/blog/",
         description: "Home of Anwesende",
         appearance: true, // 启用主题切换，支持明暗主题切换和自动跟随系统主题
         // editLinks: true,
