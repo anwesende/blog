@@ -26,10 +26,9 @@ async function config() {
     const baseConfig: UserConfig = {
         lang: "zh-CN",
         title: "Anwesende",
-        //base:"/",        
-        // 在 GitHub Pages 项目页下需指定二级路径，否则静态资源会 404
-
-        base: process.env.VITEPRESS_BASE ?? "/blog/",
+        // 在 GitHub Pages 项目页下需指定二级路径（如 /blog/），否则静态资源会 404。
+        // 本地开发/自定义域名通常使用根路径 /。
+        base: process.env.VITEPRESS_BASE ?? "/",
         description: "Home of Anwesende",
         appearance: true, // 启用主题切换，支持明暗主题切换和自动跟随系统主题
         // editLinks: true,
@@ -99,6 +98,11 @@ async function config() {
                     text: "👤 关于",
                     link: "/about",
                     activeMatch: "^/about",
+                },
+                {
+                    text: "🧮 热量计算器",
+                    link: "/calorie-calculator",
+                    activeMatch: "^/calorie-calculator/?$",
                 },
             ],
             socialLinks: [
