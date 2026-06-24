@@ -662,6 +662,7 @@ async function startAnalysis() {
             const specialPredict = result['特殊景观预测'] || result['specialTypes'] ||
                                    result['special_scenery_prediction'] || result['special_weather'] || []
             const recommendedPeriod = result['推荐时段'] || result['recommended_period']
+            const advice = result['简要建议'] || result['advice'] || result['brief_advice'] || result['suggestion']
 
             // 判断哪个时段需要更新
             const updateMorning = analysisForm.value.period === 'both' || analysisForm.value.period === 'morning'
@@ -680,9 +681,13 @@ async function startAnalysis() {
             if (suitability) {
               if (updateMorning && (preferMorning || !updateAfternoon)) {
                 weather.morning.suitability = suitability
+                weather.morning.recommendedPeriod = recommendedPeriod
+                if (advice) weather.morning.advice = advice
               }
               if (updateAfternoon && (!preferMorning || !updateMorning)) {
                 weather.afternoon.suitability = suitability
+                weather.afternoon.recommendedPeriod = recommendedPeriod
+                if (advice) weather.afternoon.advice = advice
               }
             }
 

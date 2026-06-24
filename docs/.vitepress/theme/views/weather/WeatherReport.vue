@@ -151,8 +151,15 @@ const loadWeatherData = () => {
   }, 300)
 }
 
-// 获取最佳观景时段
+// 获取最佳观景时段（优先使用 LLM 推荐）
 const getBestViewingPeriod = (row: DailyWeather): 'morning' | 'afternoon' | null => {
+  // 优先使用 LLM 推荐的时段
+  if (row.morning.recommendedPeriod === 'morning') return 'morning'
+  if (row.morning.recommendedPeriod === 'afternoon') return 'afternoon'
+  if (row.afternoon.recommendedPeriod === 'morning') return 'morning'
+  if (row.afternoon.recommendedPeriod === 'afternoon') return 'afternoon'
+
+  // 否则使用本地评分算法
   const morningScore = calculateViewingScore(row.morning)
   const afternoonScore = calculateViewingScore(row.afternoon)
 
@@ -181,9 +188,18 @@ const calculateViewingScore = (weather: any): number => {
   return score
 }
 
-// 获取观景建议
+// 获取观景建议（优先使用 LLM 建议）
 const getSuggestion = (row: DailyWeather): string => {
+  // 优先使用 LLM 的建议
   const bestPeriod = getBestViewingPeriod(row)
+  if (bestPeriod) {
+    const period = bestPeriod === 'morning' ? row.morning : row.afternoon
+    if (period.advice) {
+      return period.advice
+    }
+  }
+
+  // 否则使用本地算法生成建议
   if (!bestPeriod) return '全天适宜观景'
 
   const period = bestPeriod === 'morning' ? row.morning : row.afternoon

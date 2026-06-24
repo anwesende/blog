@@ -94,15 +94,15 @@ description: 用于生成列表摘要、SEO、Gitalk issue body
 
 ## 🎨 主题架构
 
-| 模块                               | 职责                                                                                                                            |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `Layout.vue`                     | 基于 DefaultTheme Layout，插入`PostTitle`、`PostCategory`、`PostPager`、`Comments`、`Footer`、`MouseEvent` 等内容。 |
-| `components/home`                | `Hero.vue`（Lottie 动画）、`Greeting.vue`（字符揭示）、`HomePostList.vue`。                                               |
-| `components/post`                | 文章卡片、分页、分类等展示组件。                                                                                                |
-| `components/plugin/Comments.vue` | giscus 挂载逻辑，根据`page.relativePath` 切换讨论并同步明暗主题。                                                             |
-| `components/effect/Counter.vue`  | 不蒜子 PV/UV 统计。                                                                                                             |
-| `constants/index.ts`             | 评论（giscus）与分页配置，全部支持`import.meta.env` 注入。                                                                    |
-| `utils/posts.ts`                 | `getPosts()`、`getPostLength()`，负责扫描 Markdown 并注入 `themeConfig.posts`。                                           |
+| 模块 | 职责 |
+| --- | --- |
+| `Layout.vue` | 基于 DefaultTheme Layout，插入 `PostTitle`、`PostCategory`、`PostPager`、`Comments`、`Footer`、`MouseEvent` 等内容。 |
+| `components/home` | `Hero.vue`（Lottie 动画）、`Greeting.vue`（字符揭示）、`HomePostList.vue`。 |
+| `components/post` | 文章卡片、分页、分类等展示组件。 |
+| `components/plugin/Comments.vue` | giscus 挂载逻辑，根据 `page.relativePath` 切换讨论并同步明暗主题。 |
+| `components/effect/Counter.vue` | 不蒜子 PV/UV 统计。 |
+| `constants/index.ts` | 评论（giscus）与分页配置，全部支持 `import.meta.env` 注入。 |
+| `utils/posts.ts` | `getPosts()`、`getPostLength()`，负责扫描 Markdown 并注入 `themeConfig.posts`。 |
 
 自定义样式集中在 `docs/.vitepress/theme/custom.css`，可统一覆盖配色、字体、暗色模式等。
 

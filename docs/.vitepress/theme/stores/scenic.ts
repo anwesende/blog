@@ -19,7 +19,7 @@ const defaultScenics: ScenicSpot[] = [
   },
   {
     id: '2',
-    name: '武功山风景区',
+    name: '武功山—金顶',
     province: '江西省',
     city: '萍乡市',
     latitude: 27.4521,

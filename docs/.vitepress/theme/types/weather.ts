@@ -49,6 +49,8 @@ export interface WeatherPeriod {
   isSpecial?: boolean      // 是否特殊天气
   specialType?: string     // 特殊天气类型（云海、日出等）
   suitability?: '优' | '良' | '中' | '差'  // 观景适宜度
+  recommendedPeriod?: 'morning' | 'afternoon' | 'both'  // LLM 推荐时段
+  advice?: string          // LLM 观景建议
 }
 
 // 单日天气数据
