@@ -104,6 +104,11 @@ async function config() {
                     link: "/calorie-calculator",
                     activeMatch: "^/calorie-calculator/?$",
                 },
+                {
+                    text: "🌤️ 景区天气",
+                    link: "/weather",
+                    activeMatch: "^/weather/?$",
+                },
             ],
             socialLinks: [
                 {icon: "github", link: "https://github.com/Anwesende"},
@@ -121,6 +126,11 @@ async function config() {
         // 开发服务器配置，允许局域网访问
         vite: {
             publicDir: resolve(__dirname, "../public"),
+            resolve: {
+                alias: {
+                    '@': resolve(__dirname, './theme')
+                }
+            },
             server: {
                 host: '0.0.0.0', // 允许局域网访问
                 port: 5173, // 指定端口
